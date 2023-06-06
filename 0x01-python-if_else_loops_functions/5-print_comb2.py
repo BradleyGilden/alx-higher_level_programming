@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-for number in range(0, 100):  # print string seperated by a comma,space
-    if number == 99:
-        print("{}".format(number))
+
+for i in range(0, 100):
+# prints numbers in decimal seperated by a comma    
+    if i != 99:
+        print("{:02d}".format(i), end=", ")
     else:
-        print("{:02}".format(number), end=", ")
+        print("{}".format(i))
