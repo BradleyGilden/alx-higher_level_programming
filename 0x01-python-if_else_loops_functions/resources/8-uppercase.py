@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def uppercase(str):  # converts string to uppercase
+def uppercase(str):
     endchar = ""
     i = 1
     for c in str:
