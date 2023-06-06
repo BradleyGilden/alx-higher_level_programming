@@ -2,7 +2,7 @@
 # removes char at index
 def remove_char_at(str, n):
     if str is None:
-        return None;
+        return None
     if n > len(str) or n < 0:
         return str
 
