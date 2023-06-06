@@ -9,6 +9,7 @@
 *and* - similar to logical '&&' operator <br>
 *or* - logical '||' operator<br>
 *not* - logical '!' operator<br>
+*pass* - do nothing
 *in* - used to check if a value is present in a sequence or collection.<br>Example:
 ```Python
 fruit = ["banana", "apple", "pear", "grape"]
