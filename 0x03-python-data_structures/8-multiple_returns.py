@@ -2,4 +2,8 @@
 
 # returns first character of a sentence and it's length
 def multiple_returns(sentence):
-    return (len(sentence), sentence[0] if sentence is None else None)
+    if sentence == "" or sentence is None:
+        return(0, None)
+    else:
+        a_len = len(sentence)
+        return (a_len, sentence[0])
