@@ -1,6 +1,29 @@
 #include "lists.h"
 
 /**
+ * reverse - reverses linked list
+ * @head: head node
+ */
+void reverse(listint_t **head)
+{
+	listint_t *after = NULL, *prev = NULL;
+	int len = llen(*head);
+
+	if (len == 0 || len == 1)
+		return;
+
+	while (*head != NULL)
+	{
+		after = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = after;
+	}
+
+	*head = prev;
+}
+
+/**
  * llen - checks length of linked list
  * @head: head node of linked list
  * Return: length of linked list
@@ -18,56 +41,48 @@ int llen(listint_t *head)
 }
 
 /**
- * alloc - stores data from linked list in an array
- * @head: head node of linked list
- * @len: length of linked list
- * Return: returns alloced array, NULL if failed
- */
-int *alloc(listint_t *head, int len)
-{
-	int *arr, i = 0;
-
-	arr = malloc(sizeof(int) * len);
-
-	if (arr == NULL)
-		return (NULL);
-
-	while (head != NULL)
-	{
-		arr[i++] = head->n;
-		head = head->next;
-	}
-
-	return (arr);
-}
-
-/**
  * is_palindrome - checks if linked list data is a palindrome
  * @head: head node of linked list
  * Return: 1 if palindrome, 0 if not
  */
 int is_palindrome(listint_t **head)
 {
-	int *arr;
-	int len, i;
+	listint_t *ptr = *head, *ptr2 = NULL, *temp;
+	int len = llen(*head);
+	int half, count = 1;
 
-	len = llen(*head);
-	if (len == 0)
+	if (head == NULL || *head == NULL || len == 1)
 		return (1);
 
-	arr = alloc(*head, len);
-	if (arr == NULL)
-		return (0);
+	half = len / 2;
 
-	for (i = 0; i < len / 2; i++)
+	while (ptr != NULL)
 	{
-		if (arr[i] != arr[len - i - 1])
+		if (count == half)
 		{
-			free(arr);
-			return (0);
-		}	
+			ptr2 = ptr->next;
+			ptr->next = NULL;
+			break;
+		}
+		ptr = ptr->next;
+		count++;
 	}
-
-	free(arr);
+	ptr = *head;
+	reverse(&ptr2);
+	temp = ptr2;
+	while (ptr != NULL || temp != NULL)
+	{
+		if (ptr->n != temp->n)
+			return (0);
+		ptr = ptr->next;
+		temp = temp->next;
+	}
+	ptr = *head;
+	reverse(&ptr2);
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	ptr->next = ptr2;
 	return (1);
 }
