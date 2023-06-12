@@ -51,7 +51,7 @@ int is_palindrome(listint_t **head)
 	int len;
 	int half, count = 1;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return (1);
 	len = llen(*head);
 	if (len == 1)
