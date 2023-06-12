@@ -47,15 +47,17 @@ int llen(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *ptr = *head, *ptr2 = NULL, *temp;
-	int len = llen(*head);
+	listint_t *ptr, *ptr2 = NULL, *temp;
+	int len;
 	int half, count = 1;
 
-	if (head == NULL || *head == NULL || len == 1)
+	if (head == NULL || *head == NULL)
 		return (1);
-
+	len = llen(*head);
+	if (len == 1)
+		return (1);
+	ptr = *head;
 	half = len / 2;
-
 	while (ptr != NULL)
 	{
 		if (count == half)
