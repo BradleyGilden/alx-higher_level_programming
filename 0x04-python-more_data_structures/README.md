@@ -64,5 +64,28 @@ fork
 knife
 >>> # prints unordered because sets are unordered
 ```
+
 ## Dictionaries
+
+* a collection of `{key:value}` pairs
+* ordered and changeable. No duplicates
+
+```Python3
+>>>capitals = {"USA": "Washington D.C.",
+...                 "India": "New Delhi",
+...                 "China": "Beijing",
+...                 "Russia": "Moscow"}
+>>>for key, value in capitals.items():
+...    print(f"{key}: {value}")
+USA: Washington D.C.
+India: New Delhi
+China: Beijing
+Russia: Moscow
+
+>>> capitals['China']
+beijing
+>>> capitals.get('China')  # get is preferred since it's safer to use
+beijing
+
+```
 
