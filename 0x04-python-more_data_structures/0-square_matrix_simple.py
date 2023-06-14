@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+# This program returns the square of a matrix
 def square_matrix_simple(matrix=[]):
     if matrix == []:
         return matrix
