@@ -75,6 +75,24 @@ knife
 ...                 "India": "New Delhi",
 ...                 "China": "Beijing",
 ...                 "Russia": "Moscow"}
+>>>
+>>>
+>>>for value in capitals.values():
+...    print(f"{value}")
+Washington D.C.
+New Delhi
+Beijing
+Moscow
+>>>
+>>>
+>>>for key in capitals.keys():
+...    print(f"{key}}")
+USA
+India
+China
+Russia
+>>>
+>>>
 >>>for key, value in capitals.items():
 ...    print(f"{key}: {value}")
 USA: Washington D.C.
