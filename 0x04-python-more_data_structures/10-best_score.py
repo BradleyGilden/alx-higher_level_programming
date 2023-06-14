@@ -6,8 +6,6 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
 
-    return max(a_dictionary)
-
     large_name = a_dictionary.keys()[0]
     large_value = a_dictionary[large_name]
 
