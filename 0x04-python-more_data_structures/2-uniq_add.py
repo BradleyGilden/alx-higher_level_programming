@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-# add unique elements in list
 def uniq_add(my_list=[]):
     sum = 0
 
