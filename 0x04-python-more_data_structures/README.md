@@ -35,7 +35,7 @@ There are also some useful set operations:
 {'r', 'd', 'b', 'm', 'z', 'l'}
 ```
 
-```
+```Python3
 >>> utensils = {"fork","spoon","knife"}         # create set utensils
 >>> dishes = {"bowl","plate","cup","knife"}     # create set dishes
 
