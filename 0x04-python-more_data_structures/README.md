@@ -16,5 +16,53 @@ Sets are unordered and unindexed. They do not contain or tolerate any duplicates
 {'banana', 'apple', 'orange'}
 ```
 
+There are also some useful set operations:
+
+```Python 3
+>>> # Demonstrate set operations on unique letters from two words
+
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+>>> a                                  # unique letters in a
+{'a', 'r', 'b', 'c', 'd'}
+>>> a - b                              # letters in a but not in b
+{'r', 'd', 'b'}
+>>> a | b                              # letters in a or b or both
+{'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+>>> a & b                              # letters in both a and b
+{'a', 'c'}
+>>> a ^ b                              # letters in a or b but not both
+{'r', 'd', 'b', 'm', 'z', 'l'}
+```
+
+```
+>>> utensils = {"fork","spoon","knife"}         # create set utensils
+>>> dishes = {"bowl","plate","cup","knife"}     # create set dishes
+
+>>> utensils.add("napkin")
+{"fork", "spoon", "knife", "napkin"}
+>>> utensils.remove("fork")
+{"spoon", "knife", "napkin"}
+>>> utensils.clear()
+{}
+>>> utensils = {"fork","spoon","knife"}
+>>> #
+>>> #
+>>> dishes.update(utensils)                         # add untensils items to dishes set
+{"fork", "spoon", "knife", "bowl", "plate", "cup"}
+dinner_table = utensils.union(dishes)               # combines the 2 sets
+{"fork", "spoon", "knife", "bowl", "plate", "cup"}
+>>> print(dishes.difference(utensils))              # shows all dish elements that are different from utensils
+{"fork", "spoon"}
+print(utensils.intersection(dishes))                # shows what is common in both sets
+{"knife"}
+
+>>> for x in utensils:
+...       print(x)
+spoon
+fork
+knife
+>>> # prints unordered because sets are unordered
+```
 ## Dictionaries
 
