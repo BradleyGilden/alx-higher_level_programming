@@ -71,7 +71,7 @@ knife
 * ordered and changeable. No duplicates
 
 ```Python3
->>>capitals = {"USA": "Washington D.C.",
+>>> capitals = {"USA": "Washington D.C.",
 ...                 "India": "New Delhi",
 ...                 "China": "Beijing",
 ...                 "Russia": "Moscow"}
