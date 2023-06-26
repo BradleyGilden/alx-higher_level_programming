@@ -2,7 +2,7 @@
 
 """
 safe_print_list - prints value if value is an integer
-@mylist: integer given to print
+@value: integer given to print
 Return: True if int, False if not
 """
 
