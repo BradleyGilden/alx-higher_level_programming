@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-safe_print_list - prints list, if index is greater then size of list then print
-                  the whole list and return size of list
+safe_print_list - prints list, if index is greater then size of list then
+                  print the whole list and return size of list
 @mylist: list given to print
 @x: number of elements to print
 Return: returns number of elements to be printed
