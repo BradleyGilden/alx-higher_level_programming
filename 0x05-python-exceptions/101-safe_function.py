@@ -13,7 +13,7 @@ def safe_function(fct, *args):
     ret = None
 
     try:
-        ret = fct(args[0], args[1])
+        ret = fct(*args)
     except Exception as e:
         print(f"Exception: {e}", file=stderr)
         return ret
