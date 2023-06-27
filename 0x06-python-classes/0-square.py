@@ -9,5 +9,5 @@ Date: 27/06/2023
 
 
 class Square:
-    """Do nothing"""
+    """This is a shell of a class, it does nothing"""
     pass
