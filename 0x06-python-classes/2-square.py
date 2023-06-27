@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-<module docstring>
+This module contains a Square class
 
 Author: Bradley Dillion Gilden
 Date: 27-06-2023
