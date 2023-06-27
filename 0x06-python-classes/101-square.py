@@ -87,7 +87,6 @@ class Square:
     def __str__(self):
         """prints square when called by print()"""
         if self.__size == 0:
-            print()
             return
         if self.__position[1] > 0:
             print("\n" * self.__position[1], end="")
