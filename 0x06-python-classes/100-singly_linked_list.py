@@ -80,12 +80,12 @@ class SinglyLinkedList:
                 n_node.next_node = self.__head
                 self.__head = n_node
                 return
-            elif ptr.next_node is not None and value > ptr.data\
+            elif ptr.next_node is not None and value >= ptr.data\
                     and value < ptr.next_node.data:
                 n_node.next_node = ptr.next_node
                 ptr.next_node = n_node
                 return
-            elif ptr.next_node is None and value > ptr.data:
+            elif ptr.next_node is None and value >= ptr.data:
                 ptr.next_node = n_node
                 return
             count += 1
