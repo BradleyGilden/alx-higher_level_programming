@@ -95,6 +95,9 @@ class SinglyLinkedList:
         """used to print list data line by line"""
         ptr = self.__head
         while ptr is not None:
-            print(ptr.data)
+            if ptr.next_node is not None:
+                print(ptr.data)
+            else:
+                print(ptr.data, end="")
             ptr = ptr.next_node
         return ""
