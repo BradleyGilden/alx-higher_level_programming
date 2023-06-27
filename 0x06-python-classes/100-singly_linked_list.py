@@ -21,6 +21,10 @@ class Node:
         Args:
             new_node(Node): reference to next node in list (optional)
             data(int): data assigned to new node"""
+        if not isinstance(data, int):
+            raise TypeError("data must be an integer")
+        if next_node is not None and not isinstance(next_node, Node):
+            raise TypeError("next_node must be a Node object")
         self.__data = data
         self.__next_node = next_node
 
