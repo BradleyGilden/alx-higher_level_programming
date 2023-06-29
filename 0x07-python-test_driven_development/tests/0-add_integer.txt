@@ -1,8 +1,62 @@
 Module: 0-add_file
 ==================
 
-Functions
+# Import module
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Functions:
 ~~~~~~~~~~
 
 add_file
 ---------
+    @EXPECTED SUCESS
+
+    # Using 2 positivie arguments
+    >>> add_integer(2, 3)
+    5
+
+        xxxxxxxxxx
+
+    # Using 1 postive argument
+    >>> add_integer(10)
+    108
+
+        xxxxxxxxxx
+
+    # Using 2 negative arguments
+    >>> add_integer(-2, -2)
+    -4
+
+        xxxxxxxxxx
+
+    # Using 1 negative argument
+    >>> add_integer(-2)
+    96
+
+        xxxxxxxxxx
+
+    # Using 2 floats as an argument
+    >>> add_integer(100.8, 20.3)
+    120
+
+        xxxxxxxxxx
+
+    # Using 1 float as an argument
+    >>> add_integer(3.0)
+    101
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @EXPECTED FAILURE
+
+    # Using non int/float data on b
+    >>> add_integer(200, "900")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+        xxxxxxxxxx
+
+    # assigning no value to a or b
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
