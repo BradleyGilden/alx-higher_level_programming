@@ -1,0 +1,80 @@
+Module: 5-text_indentation
+==================
+
+# Import module
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Functions:
+~~~~~~~~~~
+
+text_indentation
+---------
+    @EXPECTED SUCESS
+
+    # Using empty string
+    >>> text_indentation("")
+
+        xxxxxxxxxx
+
+    # Using string with only spaces
+    >>> text_indentation("      ")
+
+        xxxxxxxxxx
+
+    # Using normal string
+    >>> text_indentation("Avada Kadavra!")
+    Avada Kadavra!
+
+        xxxxxxxxxx
+
+    # Using string with one of the seperators
+    >>> text_indentation("Bravo Six, going dark.")
+    Bravo Six, going dark.
+    <BLANKLINE>
+
+    # Using string with excess spaces
+    >>> text_indentation("          Once.    Upon.  A.    Time.       ")
+    Once.
+    <BLANKLINE>
+    Upon.
+    <BLANKLINE>
+    A.
+    <BLANKLINE>
+    Time.
+    <BLANKLINE>
+
+    # Using a more long formed approach
+    >>> text_indentation("""Laa shay'a waqi'un moutlaq bale kouloun moumkine. \
+    ...     The wisdom of our Creed is revealed through these words. \
+    ...     We work in the dark, to serve the light. We are Assassins. \
+    ...     Nothing is true. Everything is permitted. \
+    ...     ~Assassins Creed Brotherhood""")
+    Laa shay'a waqi'un moutlaq bale kouloun moumkine.
+    <BLANKLINE>
+    The wisdom of our Creed is revealed through these words.
+    <BLANKLINE>
+    We work in the dark, to serve the light.
+    <BLANKLINE>
+    We are Assassins.
+    <BLANKLINE>
+    Nothing is true.
+    <BLANKLINE>
+    Everything is permitted.
+    <BLANKLINE>
+    ~Assassins Creed Brotherhood
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @EXPECTED FAILURE
+
+    # Using a non string type
+    >>> text_indentation(10)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+        xxxxxxxxxx
+
+    # Using a non string type
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
