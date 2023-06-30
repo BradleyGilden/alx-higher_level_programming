@@ -1,0 +1,53 @@
+Module: 4-print_square
+==================
+
+# Import module
+>>> print_square = __import__('4-print_square').print_square
+
+Functions:
+~~~~~~~~~~
+
+print_square
+---------
+    @EXPECTED SUCESS
+
+    # Using a valid integer size 0
+    >>> print_square(0)
+
+        xxxxxxxxxx
+
+    # Using valid integer size 1
+    >>> print_square(1)
+    #
+
+        xxxxxxxxxx
+
+    # Using valid integer size 4
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @EXPECTED FAILURE
+
+    # Using a negative integer type
+    >>> print_square(-10)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+        xxxxxxxxxx
+
+    # Using a non int type
+    >>> print_square(6.9)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+        xxxxxxxxxx
+
+    # Using a negative non int type
+    >>> print_square(-6.9)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
