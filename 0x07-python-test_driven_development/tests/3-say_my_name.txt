@@ -1,0 +1,38 @@
+Module: 2-matrix_divided
+==================
+
+# Import module
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Functions:
+~~~~~~~~~~
+
+matrix_divided
+---------
+    @EXPECTED SUCESS
+
+    # Using 1 string only for first_name
+    >>> say_my_name("Heisenberg")
+    My name is Heisenberg 
+
+        xxxxxxxxxx
+
+    # Using 2 valid strings as input
+    >>> say_my_name("Jesse", "Pinkman")
+    My name is Jesse Pinkman
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @EXPECTED FAILURE
+
+    # Using a non string for first_name
+    >>> say_my_name([0, 0, 7], "Bond")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+        xxxxxxxxxx
+
+    # Using a non string for last_name
+    >>> say_my_name("James", [0, 0, 7])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
