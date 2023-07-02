@@ -48,20 +48,69 @@ matrix_mul
     # When m_a is not a list of lists
     >>> matrix_mul([1, 2, 3], [[4], [5], [6]])
     Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+        xxxxxxxxxx
+
+    # When m_b is not a list of lists
+    >>> matrix_mul([[1, 2, 3]], [4])
+    Traceback (most recent call last):
     TypeError: m_b must be a list of lists
 
         xxxxxxxxxx
 
-    # Using invalid sublist element type for m_b
-    >>> matrix_mul([[1, 2, 3]], [4])
+    # When m_a is an empty list
+    >>> matrix_mul([], [[1, 3, 5]])
     Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    ValueError: m_a can't be empty
+
+    >>> matrix_mul([[]], [[1, 3, 5]])
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+        xxxxxxxxxx
+
+    # When m_b is an empty list
+    >>> matrix_mul([[2, 4, 6]], [])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+    >>> matrix_mul([[2, 4, 6]], [[]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
 
         xxxxxxxxxx
 
     # Using invalid sublist element type for m_a
-    >>> matrix_mul([[1, 2, 3]], [4])
+    >>> matrix_mul([[1, "Fried Chicken", 3]], [[4], [5], [6]])
     Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    TypeError: m_a should contain only integers or floats
 
         xxxxxxxxxx
+
+    # Using invalid sublist element type for m_b
+    >>> matrix_mul([[4], [5], [6]], [[1, "Fried Chicken", 3]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+        xxxxxxxxxx
+
+    # Using non-rectangular row sizes for m_a
+    >>> matrix_mul([[4], [5, 5], [6]], [[1, 2, 3]])
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+
+        xxxxxxxxxx
+
+    # Using non-rectangular row sizes for m_b
+    >>> matrix_mul([[4], [5], [6]], [[1, 2, 3], [4, 5]])
+    Traceback (most recent call last):
+    TypeError: each row of m_b must be of the same size
+
+        xxxxxxxxxx
+
+    # When matrices cant be multiplied: m_a.rows != m_b.cols
+    >>> matrix_mul([[16], [25], [36]], [[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+    ValueError: m_a and m_b can't be multiplied
+    
