@@ -16,6 +16,10 @@ class Rectangle:
             Args:
                 width(int): width of Rectangle instance
                 height(int): height of Rectangle instance
+
+            Raises:
+                TypeError: if width or height is not an integer
+                ValueError: if (width or height) < 0
         """
         self.width = width
         self.height = height
@@ -31,10 +35,6 @@ class Rectangle:
 
         Args:
             value(int): value set to width property
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value < 0
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -53,10 +53,6 @@ class Rectangle:
 
         Args:
             value(int): value set to height property
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value < 0
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
