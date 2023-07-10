@@ -1,0 +1,67 @@
+=========================+
+Module: 7-base_geometry /
+=======================/
+
+****************************** initialization *******************************
+
+# Import module
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Class takes no arguments:
+>>> bg = BaseGeometry("hey")
+Traceback (most recent call last):
+TypeError: BaseGeometry() takes no arguments
+
+# Correct initialization
+>>> bg = BaseGeometry()
+
+*****************************************************************************
+
+::::::::::::;
+Functions: /
+::::::::::/
+
+.......
+area /
+..../
+    @EXPECTED FAILURE
+
+    #calling area()
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+....................
+integer_validator /
+................./
+    @EXPECTED SUCCESS
+
+    #passing in string name and positive int value
+    >>> bg.integer_validator("sameJ", 700)
+
+::
+
+    #passing in a non-string name and int value
+    >>> bg.integer_validator(117, 47)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @EXPECTED FAILURE
+
+    #passing in a string name and non-int value
+    >>> bg.integer_validator("Ryan", "Gosling")
+    Traceback (most recent call last):
+    TypeError: Ryan must be an integer
+
+::
+
+    #passing in a string name and 0 int value
+    >>> bg.integer_validator("Jujutsu Kaisen", 0)
+    Traceback (most recent call last):
+    ValueError: Jujutsu Kaisen must be greater than 0
+
+::
+
+    #passing in a string name and negative int value
+    >>> bg.integer_validator("Celsius", -273)
+    Traceback (most recent call last):
+    ValueError: Celsius must be greater than 0
