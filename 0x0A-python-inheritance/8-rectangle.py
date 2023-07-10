@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This is the Geometry module containing class: BaseGeometry
+This is the Geometry module containing class: Rectangle
 
 Author: Bradley Dillion Gilden
 Date: 10-07-2023
