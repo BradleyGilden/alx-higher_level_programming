@@ -15,6 +15,10 @@ TypeError: BaseGeometry() takes no arguments
 # Correct initialization
 >>> bg = BaseGeometry()
 
+# print object
+>>> print(bg)  # doctest: +ELLIPSIS
+<7-base_geometry.BaseGeometry object at ...>
+
 *****************************************************************************
 
 ::::::::::::;
@@ -25,6 +29,12 @@ Functions: /
 area /
 ..../
     @EXPECTED FAILURE
+
+    #printing area as a property
+    >>> print(bg.area) # doctest: +ELLIPSIS
+    <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at ...>>
+
+::
 
     #calling area()
     >>> bg.area()
@@ -46,6 +56,12 @@ integer_validator /
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @EXPECTED FAILURE
+
+    #printing as a property
+    >>> print(bg.integer_validator)  # doctest: +ELLIPSIS
+    <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at ...>>
+
+::
 
     #passing in a string name and non-int value
     >>> bg.integer_validator("Ryan", "Gosling")
