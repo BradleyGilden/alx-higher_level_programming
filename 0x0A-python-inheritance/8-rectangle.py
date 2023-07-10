@@ -45,7 +45,7 @@ class Rectangle(BaseGeometry):
         """The constructor method for initializing width and height of a
         Rectangle object
         """
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
