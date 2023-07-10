@@ -1,10 +1,10 @@
-How to Use 7-base_geometry.py
-=============================
+====================+
+7-base_geometry.py /
+==================/
 
-This modules defines a base geometry class BaseGeometry.
+This is the test file for BaseGeometry Class.
 
-Instantiation
-=============
+************************* instantiation ***********************************
 
 ``BaseGeometry`` includes no attributes, and accordingly is initialized 
 with no arguments.
@@ -30,8 +30,11 @@ in a TypeError.
     Traceback (most recent call last):
     TypeError: BaseGeometry() takes no arguments
 
-Methods
-=======
+***************************************************************************
+
+---------+
+Methods /
+-------/
 
 ``BaseGeometry`` features two methods - ``area(self)`` and 
 ``integer_validator(self, name, value)``. ``area(...)`` is not yet
