@@ -1,0 +1,59 @@
+Module: 1-my_list
+==================
+
+# Import module
+>>> MyList = __import__('1-my_list').MyList
+
+
+Functions: print_sorted
+~~~~~~~~~~~~~~~~~~~~~~~~
+@Expected success
+
+    #appending positive ints
+    >>> mylist = MyList()
+    >>> mylist.append(20)
+    >>> mylist.append(2)
+    >>> mylist.append(33)
+    >>> mylist.append(4)
+    >>> print(mylist)
+    [20, 2, 33, 4]
+
+    >>> mylist.print_sorted()
+    [2, 4, 20, 33]
+
+    >>> print(mylist)
+    [20, 2, 33, 4]
+
+::
+
+    #appending positive and negative ints
+    >>> mylist = MyList()
+    >>> mylist.append(-20)
+    >>> mylist.append(2)
+    >>> mylist.append(33)
+    >>> mylist.append(-4)
+    >>> print(mylist)
+    [-20, 2, 33, -4]
+
+    >>> mylist.print_sorted()
+    [-20, -4, 2, 33]
+
+    >>> print(mylist)
+    [-20, 2, 33, -4]
+
+::
+
+    #appending non-ints
+    >>> mylist = MyList()
+    >>> mylist.append("cat")
+    >>> mylist.append("rat")
+    >>> mylist.append("mouse")
+    >>> mylist.append("dog")
+    >>> print(mylist)
+    ['cat', 'rat', 'mouse', 'dog']
+
+    >>> mylist.print_sorted()
+    ['cat', 'dog', 'mouse', 'rat']
+
+    >>> print(mylist)
+    ['cat', 'rat', 'mouse', 'dog']
