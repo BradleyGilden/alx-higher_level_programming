@@ -25,8 +25,8 @@ class BaseGeometry:
         """validates if value is a correct type of integer
 
         Args:
-            name: is always a string
-            value: a non-zero positive integer value
+            name(str): is always a string
+            value(int): a non-zero positive integer value
         """
         if type(value) != int:
             raise TypeError(f"{name} must be an integer")
