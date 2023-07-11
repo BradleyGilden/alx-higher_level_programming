@@ -1,9 +1,13 @@
-We offer a truly innovative approach to education:
-focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
+Recommended list of shounen anime:
+* 呪術廻戦
+* 進撃の巨人
 
-A school every software engineer would have dreamt of!
-guillaume@ubuntu:~/0x0B$ ./0-main.py
-We offer a truly innovative approach to education:
-focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
+For issekai:
+* 無職転生
+* Re: Zero
+* 転生したらスライムだった件
 
-A school every software engineer would have dreamt of!
+For seinen:
+* Vagabond
+* Beserk
+* Vinland Saga
