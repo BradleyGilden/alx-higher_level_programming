@@ -1,7 +1,7 @@
 #!/bin/python3
 
 """
-This is a script for dumping and loading objects to and from json files
+This module adds items to python list to save them to a file
 
 Author: Bradley Dillion Gilden
 Date: 11-07-2023
