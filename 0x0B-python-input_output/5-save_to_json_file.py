@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This module utlizes json module to implement to_json_string()
+This module utlizes json module to implement save_to_json_string()
 
 Author: Bradley Dillion Gilden
 Date: 11-07-2023
