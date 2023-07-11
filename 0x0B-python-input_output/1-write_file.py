@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-<module docstring>
+This module contains function write_file()
 
 Author: Bradley Dillion Gilden
 Date: 11-07-2023
