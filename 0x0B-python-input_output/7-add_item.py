@@ -6,7 +6,7 @@ This module adds items to python list to save them to a file
 Author: Bradley Dillion Gilden
 Date: 11-07-2023
 """
-from sys import argv
+import sys
 
 
 if __name__ == '__main__':
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         obj_list = load_from_json_file(filename)
     except FileNotFoundError:
         obj_list = []
-    if len(argv) > 1:
-        for i in range(1, len(argv)):
-            obj_list.append(argv[i])
+    if len(sys.argv) > 1:
+        for i in range(1, len(sys.argv)):
+            obj_list.append(sys.argv[i])
     save_to_json_file(obj_list, filename)
