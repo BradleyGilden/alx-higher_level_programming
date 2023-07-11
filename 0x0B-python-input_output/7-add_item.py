@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 """
 This module adds items to python list to save them to a file
