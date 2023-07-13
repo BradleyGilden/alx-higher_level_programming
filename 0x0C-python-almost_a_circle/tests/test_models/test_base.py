@@ -72,6 +72,11 @@ class Test_Base_Instantiation(unittest.TestCase):
         self.assertEqual(b1.id, b3.id - 2)
         self.assertEqual(b2.id, 117)
 
+    def test_private_directly(self):
+        
+        """attempt access private attribute directly"""
+        with self.
+
 
 if __name__ == "__main__":
     unittest.main()
