@@ -7,9 +7,9 @@ This module is for testing the base module
 +------++-------------------------+
 | Line ||       Class             |
 +======++=========================+
-| 21   || Test_Base_Documentation |
+| 25   || Test_Base_Documentation |
 +------++-------------------------+
-| 32   || Test_Base_Instantiation |
+| 38   || Test_Base_Instantiation |
 +------++-------------------------+
 
 Date: 13/07/2023
@@ -26,12 +26,15 @@ class Test_Base_Documentation(unittest.TestCase):
     """Unit test to test for correct documentation"""
 
     def test_module_doc(self):
+        """test modules documentation"""
         self.assertGreater(len(models.base.__doc__), 1)
 
     def test_class_doc(self):
+        """tests class' documentation"""
         self.assertGreater(len(Base.__doc__), 1)
 
     def test_init_doc(self):
+        """tests init method documentation"""
         self.assertGreater(len(Base.__init__.__doc__), 1)
 
 
