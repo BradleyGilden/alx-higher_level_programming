@@ -18,11 +18,15 @@ Author: Bradley Dillion Gilden
 
 
 import unittest
+import models.base
 from models.base import Base
 
 
 class Test_Base_Documentation(unittest.TestCase):
     """Unit test to test for correct documentation"""
+
+    def test_module_doc(self):
+        self.assertGreater(len(models.base.__doc__), 1)
 
     def test_class_doc(self):
         self.assertGreater(len(Base.__doc__), 1)
@@ -73,9 +77,15 @@ class Test_Base_Instantiation(unittest.TestCase):
         self.assertEqual(b2.id, 117)
 
     def test_private_directly(self):
-        
         """attempt access private attribute directly"""
-        with self.
+        b1 = Base()
+        with self.assertRaises(AttributeError):
+            b1.__nb_objects
+
+    def test_two_args(self):
+        """attempt to use two arguments"""
+        with self.assertRaises(TypeError):
+            Base(1, 2)
 
 
 if __name__ == "__main__":
