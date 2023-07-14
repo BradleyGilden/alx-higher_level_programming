@@ -109,15 +109,20 @@ class Rectangle(Base):
         return f"""[Rectangle] ({self.id:d}) {self.__x:d}/{self.__y:d} - \
 {self.__width:d}/{self.__height:d}"""
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """used to update object instance attributes
         order= (id, width, height, x, y)
 
         Args:
             args(tuple): variable integer arguments
+            kwargs(dict): keyword arguments
         """
-        i = 0
-        name = ["id", "width", "height", "x", "y"]
-        while i < len(args) and i < 5:
-            setattr(self, name[i], args[i])
-            i += 1
+        if args != ():
+            i = 0
+            key = ["id", "width", "height", "x", "y"]
+            while i < len(args) and i < 5:
+                setattr(self, key[i], args[i])
+                i += 1
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
