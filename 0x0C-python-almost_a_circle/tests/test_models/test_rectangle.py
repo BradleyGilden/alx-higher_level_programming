@@ -475,6 +475,30 @@ class Test_Rect_Out(unittest.TestCase):
         self.assertEqual(expected, output)
         self.assertEqual(expected2, output2)
 
+    def test_update_err(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r.update(r.id, "22", "33", "2", "1")
+
+    def test_update_err2(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r.update(r.id, r.width, "1", "2", "3")
+
+    def test_update_err3(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r.update(r.id, r.width, r.height, "2", "1")
+
+    def test_update_err4(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r.update(r.id, r.width, r.height, r.x, "3")
+
 
 if __name__ == '__main__':
     unittest.main()
