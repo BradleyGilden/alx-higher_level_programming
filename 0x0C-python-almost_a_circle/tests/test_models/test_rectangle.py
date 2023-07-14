@@ -45,6 +45,8 @@ class Test_Rectangle_Documentation(unittest.TestCase):
         self.assertGreater(len(Rectangle.y.__doc__), 1)
         self.assertGreater(len(Rectangle.area.__doc__), 1)
         self.assertGreater(len(Rectangle.display.__doc__), 1)
+        self.assertGreater(len(Rectangle.__str__.__doc__), 1)
+        self.assertGreater(len(Rectangle.update.__doc__), 1)
 
 
 class Test_Rectangle_Instantiation(unittest.TestCase):
@@ -368,7 +370,7 @@ class Test_Rectangle_Functions(unittest.TestCase):
         self.assertEqual(Rectangle(3, 22, 0, 0, 99).area(), 66)
 
 
-class Test_Rectangle_Output(unittest.TestCase):
+class Test_Rect_Out(unittest.TestCase):
     """tests Rectangle method outputs on stdout"""
 
     @staticmethod
@@ -391,56 +393,87 @@ class Test_Rectangle_Output(unittest.TestCase):
     def test_display_no_xy(self):
         """test display function with just width and height"""
         expected = "###\n###\n###\n###\n"
-        output = Test_Rectangle_Output.capture(Rectangle(3, 4), "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 4), "display")
         self.assertEqual(expected, output)
 
     def test_display_with_x(self):
         """test display function with just x"""
         expected = "    ##\n    ##\n"
-        output = Test_Rectangle_Output.capture(Rectangle(2, 2, 4), "display")
+        output = Test_Rect_Out.capture(Rectangle(2, 2, 4), "display")
         self.assertEqual(expected, output)
 
     def test_display_with_y(self):
         """test display function with just y"""
         expected = "\n\n\n\n##\n##\n"
-        output = Test_Rectangle_Output.capture(Rectangle(2, 2, 0, 4),
-                                               "display")
+        output = Test_Rect_Out.capture(Rectangle(2, 2, 0, 4), "display")
         self.assertEqual(expected, output)
 
     def test_display_with_xy(self):
         """test display function with all parameters except id"""
         expected = "\n\n ###\n ###\n"
-        output = Test_Rectangle_Output.capture(Rectangle(3, 2, 1, 2),
-                                               "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2), "display")
         self.assertEqual(expected, output)
 
     def test_display_with_xy_id(self):
         """test display function with all parameters"""
         expected = "\n\n ###\n ###\n"
-        output = Test_Rectangle_Output.capture(Rectangle(3, 2, 1, 2, 2022),
-                                               "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2, 2022), "display")
         self.assertEqual(expected, output)
 
     def test_print_width_height(self):
         """print object with width and height"""
         r = Rectangle(3, 4)
-        expected = f"[Rectangle] ({r.id}) 0/0 - 3/4\n"
-        output = Test_Rectangle_Output.capture(r, "print")
+        expected = f"[Rectangle] ({r.id:d}) 0/0 - 3/4\n"
+        output = Test_Rect_Out.capture(r, "print")
         self.assertEqual(expected, output)
 
     def test_print_id(self):
         """print object with id"""
         r = Rectangle(3, 4, id=818)
         expected = "[Rectangle] (818) 0/0 - 3/4\n"
-        output = Test_Rectangle_Output.capture(r, "print")
+        output = Test_Rect_Out.capture(r, "print")
         self.assertEqual(expected, output)
 
     def test_print_all(self):
         """print object with all parameters"""
         r = Rectangle(2, 2, 1, 1, 310)
         expected = "[Rectangle] (310) 1/1 - 2/2\n"
-        output = Test_Rectangle_Output.capture(r, "print")
+        output = Test_Rect_Out.capture(r, "print")
         self.assertEqual(expected, output)
+
+    def test_update_nothing(self):
+        """test no parameter update"""
+        r = Rectangle(23, 32)
+        r.update()
+        expected = f"[Rectangle] ({r.id:d}) 0/0 - 23/32\n"
+        output = Test_Rect_Out.capture(r, "print")
+        self.assertEqual(expected, output)
+
+    def test_update_id(self):
+        """test update function with id"""
+        r1 = Rectangle(33, 22)
+        r2 = Rectangle(33, 22, id=420)
+        r1.update(240)
+        r2.update(720)
+        expected1 = "[Rectangle] (240) 0/0 - 33/22\n"
+        expected2 = "[Rectangle] (720) 0/0 - 33/22\n"
+        output1 = Test_Rect_Out.capture(r1, "print")
+        output2 = Test_Rect_Out.capture(r2, "print")
+        self.assertEqual(expected1, output1)
+        self.assertEqual(expected2, output2)
+
+    def test_update_all(self):
+        """test update function with all arguments"""
+        r = Rectangle(9, 5)
+        r2 = Rectangle(1, 2, 3, 4, 12345)
+        r.update(890, 3, 4, 1, 2)
+        r2.update(54321, 4, 3, 2, 1)
+        expected = "[Rectangle] (890) 1/2 - 3/4\n"
+        output = Test_Rect_Out.capture(r, "print")
+        expected2 = "[Rectangle] (54321) 2/1 - 4/3\n"
+        output2 = Test_Rect_Out.capture(r2, "print")
+        self.assertEqual(expected, output)
+        self.assertEqual(expected2, output2)
 
 
 if __name__ == '__main__':
