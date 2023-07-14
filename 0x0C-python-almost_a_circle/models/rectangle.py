@@ -101,3 +101,10 @@ class Rectangle(Base):
             if self.__x > 0:
                 print(" " * self.__x, end="")
             print("#" * self.__width)
+
+    def __str__(self):
+        """overwriting __str__ method to display:
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+        return f"""[Rectangle] ({self.id:d}) {self.__x:d}/{self.__y:d} - \
+{self.__width:d}/{self.__height:d}"""
