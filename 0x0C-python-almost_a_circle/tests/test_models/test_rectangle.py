@@ -358,7 +358,10 @@ class Test_Rectangle_Functions(unittest.TestCase):
 
     def test_area(self):
         """test area of Rectangle instance"""
-        self.assertEqual(Rectangle(2, 11).area(), 22)
+        r = Rectangle(2, 11)
+        self.assertEqual(r.area(), 22)
+        r.width = 1
+        self.assertEqual(r.area(), 11)
         self.assertEqual(Rectangle(3, 22, 0, 0, 99).area(), 66)
 
 
