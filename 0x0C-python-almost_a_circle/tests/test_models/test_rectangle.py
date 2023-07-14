@@ -18,6 +18,8 @@ Author: Bradley Dillion Gilden
 
 
 import unittest
+from io import StringIO
+from unittest.mock import patch
 from models.base import Base
 import models.rectangle
 from models.rectangle import Rectangle
@@ -363,6 +365,27 @@ class Test_Rectangle_Functions(unittest.TestCase):
         r.width = 1
         self.assertEqual(r.area(), 11)
         self.assertEqual(Rectangle(3, 22, 0, 0, 99).area(), 66)
+
+
+class Test_Rectangle_Output(unittest.TestCase):
+    """tests Rectangle method outputs on stdout"""
+
+    @staticmethod
+    def capture_output(rect, method):
+        """captures output from stdout and returns it as a string
+
+        Args:
+            rect(Rectangle): Rectangle object
+            method(str): display method for Rectanlge object
+        """
+        output = StringIO()
+        with patch('sys.stdout', new=output):
+            if method == "display":
+                rect.display()
+            if method == "print":
+                print(rect)
+
+        return output.getvalue()
 
 
 if __name__ == '__main__':
