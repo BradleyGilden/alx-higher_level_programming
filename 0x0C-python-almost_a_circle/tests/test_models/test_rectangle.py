@@ -44,6 +44,7 @@ class Test_Rectangle_Documentation(unittest.TestCase):
         self.assertGreater(len(Rectangle.x.__doc__), 1)
         self.assertGreater(len(Rectangle.y.__doc__), 1)
         self.assertGreater(len(Rectangle.area.__doc__), 1)
+        self.assertGreater(len(Rectangle.display.__doc__), 1)
 
 
 class Test_Rectangle_Instantiation(unittest.TestCase):
@@ -371,7 +372,7 @@ class Test_Rectangle_Output(unittest.TestCase):
     """tests Rectangle method outputs on stdout"""
 
     @staticmethod
-    def capture_output(rect, method):
+    def capture(rect, method):
         """captures output from stdout and returns it as a string
 
         Args:
@@ -386,6 +387,60 @@ class Test_Rectangle_Output(unittest.TestCase):
                 print(rect)
 
         return output.getvalue()
+
+    def test_display_no_xy(self):
+        """test display function with just width and height"""
+        expected = "###\n###\n###\n###\n"
+        output = Test_Rectangle_Output.capture(Rectangle(3, 4), "display")
+        self.assertEqual(expected, output)
+
+    def test_display_with_x(self):
+        """test display function with just x"""
+        expected = "    ##\n    ##\n"
+        output = Test_Rectangle_Output.capture(Rectangle(2, 2, 4), "display")
+        self.assertEqual(expected, output)
+
+    def test_display_with_y(self):
+        """test display function with just y"""
+        expected = "\n\n\n\n##\n##\n"
+        output = Test_Rectangle_Output.capture(Rectangle(2, 2, 0, 4),
+                                               "display")
+        self.assertEqual(expected, output)
+
+    def test_display_with_xy(self):
+        """test display function with all parameters except id"""
+        expected = "\n\n ###\n ###\n"
+        output = Test_Rectangle_Output.capture(Rectangle(3, 2, 1, 2),
+                                               "display")
+        self.assertEqual(expected, output)
+
+    def test_display_with_xy_id(self):
+        """test display function with all parameters"""
+        expected = "\n\n ###\n ###\n"
+        output = Test_Rectangle_Output.capture(Rectangle(3, 2, 1, 2, 2022),
+                                               "display")
+        self.assertEqual(expected, output)
+
+    def test_print_width_height(self):
+        """print object with width and height"""
+        r = Rectangle(3, 4)
+        expected = f"[Rectangle] ({r.id}) 0/0 - 3/4\n"
+        output = Test_Rectangle_Output.capture(r, "print")
+        self.assertEqual(expected, output)
+
+    def test_print_id(self):
+        """print object with id"""
+        r = Rectangle(3, 4, id=818)
+        expected = "[Rectangle] (818) 0/0 - 3/4\n"
+        output = Test_Rectangle_Output.capture(r, "print")
+        self.assertEqual(expected, output)
+
+    def test_print_all(self):
+        """print object with all parameters"""
+        r = Rectangle(2, 2, 1, 1, 310)
+        expected = "[Rectangle] (310) 1/1 - 2/2\n"
+        output = Test_Rectangle_Output.capture(r, "print")
+        self.assertEqual(expected, output)
 
 
 if __name__ == '__main__':
