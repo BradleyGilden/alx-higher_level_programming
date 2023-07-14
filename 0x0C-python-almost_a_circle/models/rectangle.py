@@ -99,5 +99,5 @@ class Rectangle(Base):
             print()
         for _ in range(self.__height):
             if self.__x > 0:
-                print(" " * self.__x)
+                print(" " * self.__x, end="")
             print("#" * self.__width)
