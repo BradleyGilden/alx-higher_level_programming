@@ -41,6 +41,7 @@ class Test_Rectangle_Documentation(unittest.TestCase):
         self.assertGreater(len(Rectangle.height.__doc__), 1)
         self.assertGreater(len(Rectangle.x.__doc__), 1)
         self.assertGreater(len(Rectangle.y.__doc__), 1)
+        self.assertGreater(len(Rectangle.area.__doc__), 1)
 
 
 class Test_Rectangle_Instantiation(unittest.TestCase):
@@ -350,6 +351,15 @@ class Test_Y_Values(unittest.TestCase):
             r.y = -5
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(1, 1, 1, -5)
+
+
+class Test_Rectangle_Functions(unittest.TestCase):
+    """test outcome of functions of Rectangle"""
+
+    def test_area(self):
+        """test area of Rectangle instance"""
+        self.assertEqual(Rectangle(2, 11).area(), 22)
+        self.assertEqual(Rectangle(3, 22, 0, 0, 99).area(), 66)
 
 
 if __name__ == '__main__':
