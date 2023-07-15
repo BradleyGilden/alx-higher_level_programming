@@ -9,6 +9,9 @@ Author: Bradley Dillion Gilden
 """
 
 
+import json
+
+
 class Base:
     """Manages id in inheritted classes and to avoid code/bug duplication
 
@@ -30,3 +33,33 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """returns JSON string representation of list_dictionaries
+
+        Args:
+            list_dictionaries([{}]): a list of dictionaires
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """writes json string representation of {list_objs} to {Class.json}
+
+        Args:
+            list_objs(Rectangle or Square): list of objects
+        """
+        filename = cls.__name__ + ".json"
+
+        if list_objs is None:
+            with open(filename, "w", encoding="utf-8") as file:
+                file.write("[]")
+        else:
+            expand_list = [obj.to_dictionary() for obj in list_objs]
+            json_list = cls.to_json_string(expand_list)
+            with open(filename, "w", encoding="utf-8") as file:
+                file.write(json_list)
