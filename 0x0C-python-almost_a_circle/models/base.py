@@ -10,6 +10,7 @@ Author: Bradley Dillion Gilden
 
 
 import json
+import csv
 
 
 class Base:
@@ -92,7 +93,7 @@ class Base:
         """returns a list of instances from json file"""
         filename = cls.__name__ + ".json"
         try:
-            with open(filename, "r", encoding="utf-8") as file:
+            with open(filename, "r") as file:
                 json_string = file.read()
 
         except FileNotFoundError:
@@ -101,3 +102,38 @@ class Base:
         json_list = cls.from_json_string(json_string)
         obj_list = [cls.create(**dictionary) for dictionary in json_list]
         return obj_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save python object to csv file format"""
+        filename = cls.__name__ + ".csv"
+        if cls.__name__ == "Square":
+            fieldnames = ["id", "size", "x", "y"]
+        else:
+            fieldnames = ["id", "width", "height", "x", "y"]
+
+        with open(filename, "w", newline="") as file:
+            if list_objs is None or list_objs == []:
+                file.write("[]")
+            else:
+                expand_list = [obj.to_dictionary() for obj in list_objs]
+                writer = csv.DictWriter(file, fieldnames=fieldnames)
+                for row in expand_list:
+                    writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load a list of objects from csv file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except FileNotFoundError:
+            return []
