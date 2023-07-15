@@ -74,3 +74,15 @@ class Base:
         if json_string is None or json_string == []:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create a new instance of Square or Rectangle with all it's
+        attributes set to values in dictionary
+
+        Args:
+        dictionary(dict): variable keyword arguments
+        """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
