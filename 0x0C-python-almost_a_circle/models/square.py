@@ -22,6 +22,7 @@ class Square(Rectangle):
         id(int): object id
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """The constructor method for the Square class"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
