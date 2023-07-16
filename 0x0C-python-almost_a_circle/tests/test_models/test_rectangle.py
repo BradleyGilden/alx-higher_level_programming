@@ -47,6 +47,7 @@ class Test_Rectangle_Documentation(unittest.TestCase):
         self.assertGreater(len(Rectangle.display.__doc__), 1)
         self.assertGreater(len(Rectangle.__str__.__doc__), 1)
         self.assertGreater(len(Rectangle.update.__doc__), 1)
+        self.assertGreater(len(Rectangle.to_dictionary.__doc__), 1)
 
 
 class Test_Rectangle_Instantiation(unittest.TestCase):
@@ -92,6 +93,12 @@ class Test_Rectangle_Instantiation(unittest.TestCase):
     def test_base_instance(self):
         """Tests if Rectangle is an instance of Base"""
         self.assertTrue(isinstance(Rectangle(22, 33), Base))
+
+    def test_base_rectangle(self):
+        """Ensures base and rectangle id's correlate"""
+        b = Base()
+        r = Rectangle(1, 1)
+        self.assertEqual(1, r.id - b.id)
 
 
 class Test_Width_Values(unittest.TestCase):
@@ -361,6 +368,12 @@ class Test_Y_Values(unittest.TestCase):
 class Test_Rectangle_Functions(unittest.TestCase):
     """test outcome of functions of Rectangle"""
 
+    def test_area_args(self):
+        """this function tests area with arguments"""
+        r = Rectangle(2, 2)
+        with self.assertRaises(TypeError):
+            r.area(22)
+
     def test_area(self):
         """test area of Rectangle instance"""
         r = Rectangle(2, 11)
@@ -368,6 +381,24 @@ class Test_Rectangle_Functions(unittest.TestCase):
         r.width = 1
         self.assertEqual(r.area(), 11)
         self.assertEqual(Rectangle(3, 22, 0, 0, 99).area(), 66)
+
+    def test_to_dictionary_args(self):
+        """tests to dictionary function with arguments"""
+        r = Rectangle(2, 11)
+        with self.assertRaises(TypeError):
+            r.to_dictionary(300)
+
+    def test_to_dictionary(self):
+        """tests a Rectangle objects to dictionary function"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r2 = Rectangle(1, 2, 3, 4)
+        r3 = Rectangle(1, 2)
+        dict1 = {"width": 1, "height": 2, "x": 3, "y": 4, "id": 5}
+        dict2 = {"width": 1, "height": 2, "x": 3, "y": 4, "id": r2.id}
+        dict3 = {"width": 1, "height": 2, "x": 0, "y": 0, "id": r2.id + 1}
+        self.assertEqual(r1.to_dictionary(), dict1)
+        self.assertEqual(r2.to_dictionary(), dict2)
+        self.assertEqual(r3.to_dictionary(), dict3)
 
 
 class Test_Rect_Out(unittest.TestCase):
@@ -425,7 +456,7 @@ class Test_Rect_Out(unittest.TestCase):
 
     def test_print_id(self):
         """print object with id"""
-        r = Rectangle(3, 4, id=818)
+        r = Rectangle(3, 4, 0, 0, 818)
         expected = "[Rectangle] (818) 0/0 - 3/4"
         self.assertEqual(expected, str(r))
 
@@ -486,29 +517,107 @@ class Test_Rect_Out(unittest.TestCase):
         expected = "[Rectangle] (232) 21/9 - 2/32"
         self.assertEqual(expected, str(r))
 
-    def test_update_err(self):
+    def test_update_keyword_args(self):
+        """this function tests updates ability to handle keyword args"""
+        r = Rectangle(3, 5)
+        r.update(height=3)
+        expected = f"[Rectangle] ({r.id}) 0/0 - 3/3"
+        self.assertEqual(str(r), expected)
+
+    def test_update_3keyword_args(self):
+        """this function tests update with 3 keyword arguments"""
+        r = Rectangle(3, 5, 9)
+        r.update(x=2, width=45)
+        expected = f"[Rectangle] ({r.id}) 2/0 - 45/5"
+        self.assertEqual(str(r), expected)
+
+    def test_update_4keyword_args(self):
+        """this function tests update with 4 keyword arguments"""
+        r = Rectangle(32, 21, 43, 84)
+        r.update(y=20, width=35, x=88, height=1)
+        expected = f"[Rectangle] ({r.id}) 88/20 - 35/1"
+        self.assertEqual(str(r), expected)
+
+    def test_update_5keyword_args(self):
+        """this function tests update with 5 keyword arguments"""
+        r = Rectangle(32, 21, 43, 84, 1020)
+        r.update(id=208, x=35, height=88, y=77, width=1)
+        expected = f"[Rectangle] ({208}) 35/77 - 1/88"
+        self.assertEqual(str(r), expected)
+
+    def test_update_multiple_keyword_args(self):
+        """this function tests update function with multiple arguments"""
+        r = Rectangle(22, 2)
+        r.update(x=33, id=99, height=77, width=22, y=55, edges=433)
+        expected = f"[Rectangle] ({99}) 33/55 - 22/77"
+        self.assertEqual(expected, str(r))
+
+    def test_update_args_kwargs(self):
+        """this function tests update function with args and kwargs"""
+        r = Rectangle(22, 2)
+        r.update(21, 234, x=220, y=5)
+        expected = f"[Rectangle] ({21}) 0/0 - 234/2"
+        self.assertEqual(expected, str(r))
+
+    def test_update_err1_int(self):
         """this function tests for update errors"""
         r = Rectangle(22, 33)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r.update(r.id, "22", "33", "2", "1")
 
-    def test_update_err2(self):
+    def test_update_err2_int(self):
         """this function tests for update errors"""
         r = Rectangle(22, 33)
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r.update(r.id, r.width, "1", "2", "3")
 
-    def test_update_err3(self):
+    def test_update_err3_int(self):
         """this function tests for update errors"""
         r = Rectangle(22, 33)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r.update(r.id, r.width, r.height, "2", "1")
 
-    def test_update_err4(self):
+    def test_update_err4_int(self):
         """this function tests for update errors"""
         r = Rectangle(22, 33)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r.update(r.id, r.width, r.height, r.x, "3")
+
+    def test_update_err1_negative(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(r.id, -22, -33, -3, -1)
+
+    def test_update_err2_negative(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(r.id, r.width, -1, -2, -3)
+
+    def test_update_err3_negative(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r.update(r.id, r.width, r.height, -2, -1)
+
+    def test_update_err4_negative(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r.update(r.id, r.width, r.height, r.x, -3)
+
+    def test_update_err1_zero(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(r.id, 0, -33, -3, -1)
+
+    def test_update_err2_zero(self):
+        """this function tests for update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(r.id, r.width, 0, -2, -3)
 
 
 if __name__ == '__main__':
