@@ -7,9 +7,21 @@ This module is for testing the rectangel module
 +------++------------------------------+
 | Line ||           Class              |
 +======++==============================+
-| 25   || Test_Rectangle_Documentation |
+| 40   || Test_Rectangle_Documentation |
 +------++------------------------------+
-| 46   || Test_Rectangle_Instantiation |
+| 65   || Test_Rectangle_Instantiation |
++------++------------------------------+
+| 116  || Test_Width_Values            |
++------++------------------------------+
+| 181  || Test_Height_Values           |
++------++------------------------------+
+| 246  || Test_X_Values                |
++------++------------------------------+
+| 313  || Test_Y_Values                |
++------++------------------------------+
+| 380  || Test_Rectangle_Functions     |
++------++------------------------------+
+| 416  || Test_Rect_Out                |
 +------++------------------------------+
 
 Date: 13/07/2023
