@@ -619,6 +619,66 @@ class Test_Rect_Out(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r.update(r.id, r.width, 0, -2, -3)
 
+    def test_update_kwerr1_int(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r.update(width="big")
+
+    def test_update_kwerr2_int(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r.update(id=r.id, width=r.height, x=r.y, height="low", y=4)
+
+    def test_update_kwerr3_int(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r.update(y=r.x, id=33, x="WEEE")
+
+    def test_update_kwerr4_int(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r.update(id=r.id, width=r.width, y="why")
+
+    def test_update_kwerr1_negative(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(id=r.id, width=-22, height=-33, y=-3, x=-1)
+
+    def test_update_kwerr2_negative(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(id=r.id, height=-22, width=-33, y=-3, x=-1)
+
+    def test_update_kwerr3_negative(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r.update(id=r.id, height=r.width, width=r.height, y=2, x=-1)
+
+    def test_update_kwerr4_negative(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r.update(id=r.id, height=3, x=2, width=3, y=-3)
+
+    def test_update_kwerr1_zero(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(id=r.id, y=0, height=5, width=-3, x=-1)
+
+    def test_update_kwerr2_zero(self):
+        """this function tests for keyword update errors"""
+        r = Rectangle(22, 33)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(id=r.id, width=r.width, x=0, height=0, y=-2)
+
 
 if __name__ == '__main__':
     unittest.main()
