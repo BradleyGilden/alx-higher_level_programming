@@ -11,6 +11,7 @@ Author: Bradley Dillion Gilden
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -137,3 +138,62 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """this static method will draw a list of squares and rectangles
+        using tkinters turtle module
+
+        Args:
+        list_rectangles([Rectangle]): a list of rectangle objects
+        list_squares([Square]): a list of square objects
+        """
+        t = turtle.Turtle()
+        # setup drawing area
+        drawing_area = turtle.Screen()
+        drawing_area.setup(width=800, height=600)
+        drawing_area.bgcolor("green")
+        t.pensize(3)
+        t.shape("turtle")
+        t.color("yellow")
+        t.pencolor("yellow")
+        t.up()
+        t.goto(-350, 250)
+        t.down()
+        t.write("Rectangles", font=("Arial", 20, "normal"))
+        t.up()
+
+        for r in list_rectangles:
+            t.showturtle()
+            t.goto(r.x, r.y)
+            t.down()
+            for _ in range(2):
+                t.forward(r.width)
+                t.left(90)
+                t.forward(r.height)
+                t.left(90)
+            t.hideturtle()
+            t.up()
+
+        t.color("green")
+        t.pencolor("green")
+        drawing_area.bgcolor("yellow")
+        t.up()
+        t.goto(-350, 250)
+        t.down()
+        t.write("Squares", font=("Arial", 20, "normal"))
+        t.up()
+
+        for s in list_squares:
+            t.showturtle()
+            t.goto(s.x, s.y)
+            t.down()
+            for _ in range(2):
+                t.forward(s.width)
+                t.left(90)
+                t.forward(s.height)
+                t.left(90)
+            t.hideturtle()
+            t.up()
+
+        turtle.done()
