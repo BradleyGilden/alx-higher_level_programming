@@ -374,7 +374,7 @@ class Test_Rect_Out(unittest.TestCase):
     """tests Rectangle method outputs on stdout"""
 
     @staticmethod
-    def capture(rect, method):
+    def capture(rect):
         """captures output from stdout and returns it as a string
 
         Args:
@@ -383,71 +383,64 @@ class Test_Rect_Out(unittest.TestCase):
         """
         output = StringIO()
         with patch('sys.stdout', new=output):
-            if method == "display":
-                rect.display()
-            if method == "print":
-                print(rect)
+            rect.display()
 
         return output.getvalue()
 
     def test_display_no_xy(self):
         """test display function with just width and height"""
         expected = "###\n###\n###\n###\n"
-        output = Test_Rect_Out.capture(Rectangle(3, 4), "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 4))
         self.assertEqual(expected, output)
 
     def test_display_with_x(self):
         """test display function with just x"""
         expected = "    ##\n    ##\n"
-        output = Test_Rect_Out.capture(Rectangle(2, 2, 4), "display")
+        output = Test_Rect_Out.capture(Rectangle(2, 2, 4))
         self.assertEqual(expected, output)
 
     def test_display_with_y(self):
         """test display function with just y"""
         expected = "\n\n\n\n##\n##\n"
-        output = Test_Rect_Out.capture(Rectangle(2, 2, 0, 4), "display")
+        output = Test_Rect_Out.capture(Rectangle(2, 2, 0, 4))
         self.assertEqual(expected, output)
 
     def test_display_with_xy(self):
         """test display function with all parameters except id"""
         expected = "\n\n ###\n ###\n"
-        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2), "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2))
         self.assertEqual(expected, output)
 
     def test_display_with_xy_id(self):
         """test display function with all parameters"""
         expected = "\n\n ###\n ###\n"
-        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2, 2022), "display")
+        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2, 2022))
         self.assertEqual(expected, output)
 
     def test_print_width_height(self):
         """print object with width and height"""
         r = Rectangle(3, 4)
-        expected = f"[Rectangle] ({r.id:d}) 0/0 - 3/4\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = f"[Rectangle] ({r.id:d}) 0/0 - 3/4"
+        self.assertEqual(expected, str(r))
 
     def test_print_id(self):
         """print object with id"""
         r = Rectangle(3, 4, id=818)
-        expected = "[Rectangle] (818) 0/0 - 3/4\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (818) 0/0 - 3/4"
+        self.assertEqual(expected, str(r))
 
     def test_print_all(self):
         """print object with all parameters"""
         r = Rectangle(2, 2, 1, 1, 310)
-        expected = "[Rectangle] (310) 1/1 - 2/2\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (310) 1/1 - 2/2"
+        self.assertEqual(expected, str(r))
 
     def test_update_nothing(self):
         """test no parameter update"""
         r = Rectangle(23, 32)
         r.update()
-        expected = f"[Rectangle] ({r.id:d}) 0/0 - 23/32\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = f"[Rectangle] ({r.id:d}) 0/0 - 23/32"
+        self.assertEqual(expected, str(r))
 
     def test_update_id(self):
         """test update function with id"""
@@ -455,51 +448,43 @@ class Test_Rect_Out(unittest.TestCase):
         r2 = Rectangle(33, 22, 0, 0, 420)
         r1.update(240)
         r2.update(720)
-        expected1 = "[Rectangle] (240) 0/0 - 33/22\n"
-        expected2 = "[Rectangle] (720) 0/0 - 33/22\n"
-        output1 = Test_Rect_Out.capture(r1, "print")
-        output2 = Test_Rect_Out.capture(r2, "print")
-        self.assertEqual(expected1, output1)
-        self.assertEqual(expected2, output2)
+        expected1 = "[Rectangle] (240) 0/0 - 33/22"
+        expected2 = "[Rectangle] (720) 0/0 - 33/22"
+        self.assertEqual(expected1, str(r1))
+        self.assertEqual(expected2, str(r2))
 
     def test_update_all(self):
         """test update function with all arguments"""
         r = Rectangle(9, 5)
         r.update(890, 3)
-        expected = "[Rectangle] (890) 0/0 - 3/5\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (890) 0/0 - 3/5"
+        self.assertEqual(expected, str(r))
 
         r.update(891, 3, 21)
-        expected = "[Rectangle] (891) 0/0 - 3/21\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (891) 0/0 - 3/21"
+        self.assertEqual(expected, str(r))
 
         r.update(892, 3, 21, 40)
-        expected = "[Rectangle] (892) 40/0 - 3/21\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (892) 40/0 - 3/21"
+        self.assertEqual(expected, str(r))
 
         r.update(893, 3, 21, 40, 100)
-        expected = "[Rectangle] (893) 40/100 - 3/21\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (893) 40/100 - 3/21"
+        self.assertEqual(expected, str(r))
 
     def test_update_full(self):
         """test update function with already filled arguments"""
         r = Rectangle(1, 2, 3, 4, 12345)
         r.update(54321, 4, 3, 2, 1)
-        expected = "[Rectangle] (54321) 2/1 - 4/3\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (54321) 2/1 - 4/3"
+        self.assertEqual(expected, str(r))
 
     def test_update_many_args(self):
         """test update function with more than maximum arguments"""
         r = Rectangle(9, 5)
         r.update(232, 2, 32, 21, 9, 8, 3, 5)
-        expected = "[Rectangle] (232) 21/9 - 2/32\n"
-        output = Test_Rect_Out.capture(r, "print")
-        self.assertEqual(expected, output)
+        expected = "[Rectangle] (232) 21/9 - 2/32"
+        self.assertEqual(expected, str(r))
 
     def test_update_err(self):
         """this function tests for update errors"""
