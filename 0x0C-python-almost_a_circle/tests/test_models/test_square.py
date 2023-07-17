@@ -58,6 +58,11 @@ class Test_Rectangle_Documentation(unittest.TestCase):
 class Test_Square_Instantiation(unittest.TestCase):
     """Tests Square objects behaviour during instantiation"""
 
+    def test_base_rect_instance(self):
+        """Tests if Square is an instance of Base"""
+        self.assertTrue(isinstance(Square(22), Base) and
+                        isinstance(Square(22), Rectangle))
+
     def test_no_args(self):
         """Test Square with no arguments"""
         with self.assertRaises(TypeError):
@@ -90,11 +95,6 @@ class Test_Square_Instantiation(unittest.TestCase):
         self.assertEqual(r.x, 33)
         self.assertEqual(r.y, 1)
         self.assertEqual(r.id, 3077)
-
-    def test_base_rect_instance(self):
-        """Tests if Square is an instance of Base"""
-        self.assertTrue(isinstance(Square(22), Base) and
-                        isinstance(Square(22), Rectangle))
 
     def test_base_Square(self):
         """Ensures base and Square id's correlate"""

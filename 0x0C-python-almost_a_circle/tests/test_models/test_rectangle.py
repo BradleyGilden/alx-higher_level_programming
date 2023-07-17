@@ -65,6 +65,10 @@ class Test_Rectangle_Documentation(unittest.TestCase):
 class Test_Rectangle_Instantiation(unittest.TestCase):
     """Tests Rectangle objects behaviour during instantiation"""
 
+    def test_base_instance(self):
+        """Tests if Rectangle is an instance of Base"""
+        self.assertTrue(isinstance(Rectangle(22, 33), Base))
+
     def test_no_args(self):
         """Test Rectangle with no arguments"""
         with self.assertRaises(TypeError):
@@ -101,10 +105,6 @@ class Test_Rectangle_Instantiation(unittest.TestCase):
         self.assertEqual(r.x, 1)
         self.assertEqual(r.y, 2)
         self.assertEqual(r.id, 3077)
-
-    def test_base_instance(self):
-        """Tests if Rectangle is an instance of Base"""
-        self.assertTrue(isinstance(Rectangle(22, 33), Base))
 
     def test_base_rectangle(self):
         """Ensures base and rectangle id's correlate"""
@@ -457,8 +457,10 @@ class Test_Rect_Out(unittest.TestCase):
     def test_display_with_xy_id(self):
         """test display function with all parameters"""
         expected = "\n\n ###\n ###\n"
-        output = Test_Rect_Out.capture(Rectangle(3, 2, 1, 2, 2022))
+        r = Rectangle(3, 2, 1, 2, 2022)
+        output = Test_Rect_Out.capture(r)
         self.assertEqual(expected, output)
+        self.assertEqual(r.id, 2022)
 
     def test_print_width_height(self):
         """print object with width and height"""
