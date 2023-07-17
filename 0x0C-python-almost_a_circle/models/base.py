@@ -108,10 +108,10 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """save python object to csv file format"""
         filename = cls.__name__ + ".csv"
-        if cls.__name__ == "Square":
-            fieldnames = ["id", "size", "x", "y"]
-        else:
+        if cls.__name__ == "Rectangle":
             fieldnames = ["id", "width", "height", "x", "y"]
+        else:
+            fieldnames = ["id", "size", "x", "y"]
 
         with open(filename, "w", newline="") as file:
             if list_objs is None or list_objs == []:
