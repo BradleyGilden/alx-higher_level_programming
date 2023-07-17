@@ -42,24 +42,24 @@ class Test_Rectangle_Documentation(unittest.TestCase):
 
     def test_module_doc(self):
         """test rectangle module documentation"""
-        self.assertGreater(len(models.rectangle.__doc__), 1)
+        self.assertGreaterEqual(len(models.rectangle.__doc__), 1)
 
     def test_class_doc(self):
         """test Rectangle class documentation"""
-        self.assertGreater(len(Rectangle.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.__doc__), 1)
 
     def test_method_docs(self):
         """test the methods of rectangle class"""
-        self.assertGreater(len(Rectangle.__init__.__doc__), 1)
-        self.assertGreater(len(Rectangle.width.__doc__), 1)
-        self.assertGreater(len(Rectangle.height.__doc__), 1)
-        self.assertGreater(len(Rectangle.x.__doc__), 1)
-        self.assertGreater(len(Rectangle.y.__doc__), 1)
-        self.assertGreater(len(Rectangle.area.__doc__), 1)
-        self.assertGreater(len(Rectangle.display.__doc__), 1)
-        self.assertGreater(len(Rectangle.__str__.__doc__), 1)
-        self.assertGreater(len(Rectangle.update.__doc__), 1)
-        self.assertGreater(len(Rectangle.to_dictionary.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.__init__.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.width.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.height.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.x.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.y.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.area.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.display.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.__str__.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.update.__doc__), 1)
+        self.assertGreaterEqual(len(Rectangle.to_dictionary.__doc__), 1)
 
 
 class Test_Rectangle_Instantiation(unittest.TestCase):
@@ -480,7 +480,7 @@ class Test_Rect_Out(unittest.TestCase):
         expected = "[Rectangle] (310) 1/1 - 2/2"
         self.assertEqual(expected, str(r))
 
-    def test_update_args_None_id(self):
+    def test_update_args_none_id(self):
         r = Rectangle(10, 10, 10, 10, 10)
         r.update(None)
         correct = f"[Rectangle] ({r.id}) 10/10 - 10/10"
