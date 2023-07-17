@@ -35,7 +35,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 
 
-class Test_Rectangle_Documentation(unittest.TestCase):
+class Test_Square_Documentation(unittest.TestCase):
     """Unit test for correct documentation of imports"""
 
     def test_module_doc(self):

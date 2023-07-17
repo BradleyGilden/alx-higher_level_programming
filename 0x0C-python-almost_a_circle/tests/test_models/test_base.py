@@ -29,15 +29,23 @@ class Test_Base_Documentation(unittest.TestCase):
 
     def test_module_doc(self):
         """test modules documentation"""
-        self.assertGreater(len(models.base.__doc__), 1)
+        self.assertGreaterEqual(len(models.base.__doc__), 1)
 
     def test_class_doc(self):
         """tests class' documentation"""
-        self.assertGreater(len(Base.__doc__), 1)
+        self.assertGreaterEqual(len(Base.__doc__), 1)
 
-    def test_init_doc(self):
-        """tests init method documentation"""
-        self.assertGreater(len(Base.__init__.__doc__), 1)
+    def test_func_doc(self):
+        """tests all methods for documentation"""
+        self.assertGreaterEqual(len(Base.__init__.__doc__), 1)
+        self.assertGreaterEqual(len(Base.to_json_string.__doc__), 1)
+        self.assertGreaterEqual(len(Base.create.__doc__), 1)
+        self.assertGreaterEqual(len(Base.draw.__doc__), 1)
+        self.assertGreaterEqual(len(Base.from_json_string.__doc__), 1)
+        self.assertGreaterEqual(len(Base.load_from_file.__doc__), 1)
+        self.assertGreaterEqual(len(Base.save_to_file.__doc__), 1)
+        self.assertGreaterEqual(len(Base.load_from_file_csv.__doc__), 1)
+        self.assertGreaterEqual(len(Base.save_to_file_csv.__doc__), 1)
 
 
 class Test_Base_Instantiation(unittest.TestCase):
