@@ -117,14 +117,19 @@ class Rectangle(Base):
             args(tuple): variable integer arguments
             kwargs(dict): keyword arguments
         """
-        if args != ():
+        keys = ["id", "width", "height", "x", "y"]
+        if args and args != ():
             i = 0
-            key = ["id", "width", "height", "x", "y"]
             while i < len(args) and i < 5:
-                setattr(self, key[i], args[i])
+                if i == 0 and args[i] is None:
+                    i += 1
+                    continue
+                setattr(self, keys[i], args[i])
                 i += 1
         else:
             for key, value in kwargs.items():
+                if key not in keys or (key == "id" and value is None):
+                    continue
                 setattr(self, key, value)
 
     def to_dictionary(self):
