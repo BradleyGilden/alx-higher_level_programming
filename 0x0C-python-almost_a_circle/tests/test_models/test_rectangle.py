@@ -480,6 +480,12 @@ class Test_Rect_Out(unittest.TestCase):
         expected = "[Rectangle] (310) 1/1 - 2/2"
         self.assertEqual(expected, str(r))
 
+    def test_update_args_None_id(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(None)
+        correct = f"[Rectangle] ({r.id}) 10/10 - 10/10"
+        self.assertEqual(correct, str(r))
+
     def test_update_nothing(self):
         """test no parameter update"""
         r = Rectangle(23, 32)
@@ -530,6 +536,12 @@ class Test_Rect_Out(unittest.TestCase):
         r.update(232, 2, 32, 21, 9, 8, 3, 5)
         expected = "[Rectangle] (232) 21/9 - 2/32"
         self.assertEqual(expected, str(r))
+
+    def test_update_kwargs_None_id(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(id=None)
+        correct = f"[Rectangle] ({r.id}) 10/10 - 10/10"
+        self.assertEqual(correct, str(r))
 
     def test_update_keyword_args(self):
         """this function tests updates ability to handle keyword args"""
