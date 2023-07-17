@@ -85,9 +85,13 @@ class Base:
         Args:
         dictionary(dict): variable keyword arguments
         """
-        dummy = cls(1, 1)
-        dummy.update(**dictionary)
-        return dummy
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                dummy = cls(1, 1)
+            else:
+                dummy = cls(1)
+            dummy.update(**dictionary)
+            return dummy
 
     @classmethod
     def load_from_file(cls):
