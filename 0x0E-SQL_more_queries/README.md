@@ -20,10 +20,7 @@ This directory touches on more sql concepts such as unions and joins
 | [11-genre_id_all_shows.sql](11-genre_id_all_shows.sql) |  a script that lists all shows contained in the database hbtn_0d_tvshows |
 | [12-no_genre.sql](12-no_genre.sql) | Write a script that lists all shows contained in hbtn_0d_tvshows without a genre linked |
 | [13-count_shows_by_genre.sql](13-count_shows_by_genre.sql) | a script that lists all genres from hbtn_0d_tvshows and displays the number of shows linked to each |
-| [0-privileges.sql](0-privileges.sql) | a script that uses the hbtn_0d_tvshows database to lists all genres of the show Dexter |
-| [0-privileges.sql](0-privileges.sql) |  |
-| [0-privileges.sql](0-privileges.sql) |  |
-| [0-privileges.sql](0-privileges.sql) |  |
-| [0-privileges.sql](0-privileges.sql) |  |
-| [0-privileges.sql](0-privileges.sql) |  |
-| [0-privileges.sql](0-privileges.sql) |  |
+| [14-my_genres.sql](14-my_genres.sql) | a script that uses the hbtn_0d_tvshows database to lists all genres of the show Dexter |
+| [15-comedy_only.sql](15-comedy_only.sql) | a script that lists all Comedy shows in the database hbtn_0d_tvshows |
+| [16-shows_by_genre.sql](16-shows_by_genre.sql) | a script that lists all shows, and all genres linked to that show, from the database hbtn_0d_tvshows |
+| [100-not_my_genres.sql](100-not_my_genres.sql) | a script that uses the hbtn_0d_tvshows database to list all genres not linked to the show Dexter |
