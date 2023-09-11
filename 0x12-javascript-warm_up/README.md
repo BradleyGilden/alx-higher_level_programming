@@ -57,6 +57,31 @@
 * [13-add.js](13-add.js) - Write a function that returns the addition of 2 integers.
   * The function must be visible from outside
   * The name of the function must be add
+  * main file: [mains/13-main.js](mains/13-main.js)
+* [100-let_me_const.js](100-let_me_const.js) - a file that modifies the value of myVar to 333
+  * main file: [mains/100-main.js](mains/100-main.js)
+* [101-call_me_moby.js](101-call_me_moby.js) - a function that executes x times a function
+  * main file: [mains/101-main.js](mains/101-main.js)
+* [102-add_me_maybe.js](102-add_me_maybe.js) - a function that increments and calls a function
+  * main file: [mains/102-main.js](mains/102-main.js)
+* [103-object_fct.js](103-object_fct.js) - Update this script by adding a new function incr that increments the integer value
+  * script:
+  * ```javascript
+    const myObject = {
+      type: 'object',
+      value: 12
+    };
+    console.log(myObject);
+    /*
+    YOUR CODE HERE
+    */
+    myObject.incr();
+    console.log(myObject);
+    myObject.incr();
+    console.log(myObject);
+    myObject.incr();
+    console.log(myObject);
+    ```
 
 
 ## Fun Facts:
