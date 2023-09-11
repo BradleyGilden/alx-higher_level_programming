@@ -7,7 +7,7 @@
  * You must do it recursively
  * You must use a function
  */
-let num = process.argv[2]
+const num = process.argv[2];
 console.log(factorial(num));
 
 function factorial (n) {
