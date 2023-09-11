@@ -8,11 +8,11 @@
  */
 
 let args = process.argv;
-let arglen = args.length;
+const arglen = args.length;
 
 if (arglen <= 3) {
   console.log(0);
 } else {
   args = args.slice(2).map(item => parseInt(item)).sort();
-  console.log(args[arglen - 4])
+  console.log(args[arglen - 4]);
 }
