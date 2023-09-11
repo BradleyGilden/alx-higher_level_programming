@@ -13,6 +13,6 @@ let arglen = args.length;
 if (arglen <= 3) {
   console.log(0);
 } else {
-  args = args.slice(2).sort();
+  args = args.slice(2).map(item => parseInt(item)).sort();
   console.log(args[arglen - 4])
 }
