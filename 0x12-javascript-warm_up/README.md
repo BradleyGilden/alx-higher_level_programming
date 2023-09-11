@@ -2,6 +2,26 @@
 
 <p align="center"><img src="images/logo.svg.png" width=200px></p>
 
+## Directory Files:
+
+* [0-javascript_is_amazing.js](0-javascript_is_amazing.js) - a script that prints “JavaScript is amazing”
+* [1-multi_languages.js](1-multi_languages.js) - 
+* [2-arguments.js](2-arguments.js) - 
+* [3-value_argument.js](3-value_argument.js) - 
+* [4-concat.js](4-concat.js) - 
+* [5-to_integer.js](5-to_integer.js) - 
+* [6-multi_languages_loop.js](6-multi_languages_loop.js) - 
+* [7-multi_c.js](7-multi_c.js) - 
+* [8-square.js](8-square.js) - 
+* [9-add.js](9-add.js) - 
+* [10-factorial.js](10-factorial.js) - 
+* [11-second_biggest.js](11-second_biggest.js) - 
+* [12-object.js](12-object.js) - 
+* [13-add.js](13-add.js) - 
+
+
+## Fun Facts:
+
 JavaScript is a versatile and widely-used programming language, and it has many interesting and cool facts associated with it. Here are some:
 
 1. **Brendan Eich**: JavaScript was created by Brendan Eich in just 10 days while he was working at Netscape Communications Corporation in 1995. It was initially called "Mocha" and later renamed to "LiveScript" before settling on "JavaScript."
