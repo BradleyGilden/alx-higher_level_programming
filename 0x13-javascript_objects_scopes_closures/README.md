@@ -47,7 +47,7 @@
 * [8-esrever.js](8-esrever.js) - a function that returns the reversed version of a list
 * [9-logme.js](9-logme.js) - a function that prints the number of arguments already printed and the new argument value
 * [10-converter.js](10-converter.js) - a function that converts a number from base 10 to another base size
-* [100-map.js](100-map.js) - A new list must be created with each value equal to the value of the initial list, multipled by the index in the list
+* [100-map.js](100-map.js) - A new list must be created with each value equal to the value of the initial list, multipled by the index in the original list
 * [101-sorted.js](101-sorted.js) - a script that imports a dictionary of occurrences by user id and computes a dictionary of user ids by occurrence.
 * [102-concat.js](102-concat.js) - a script that concats 2 files
 
