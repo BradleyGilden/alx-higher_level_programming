@@ -23,7 +23,7 @@ if __name__ == "__main__":
     session = Session()
 
     try:
-        state = session.query(State).filter(State.name == argv[4]).one()
+        state = session.query(State).filter_by(name=argv[4]).one()
         print(state.id)
     except NoResultFound:
         print('Not Found')
