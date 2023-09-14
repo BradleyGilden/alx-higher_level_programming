@@ -9,9 +9,9 @@ will first take a look at connecting `MySQLdb` to python to make direct queries 
 * [0-select_states.py](0-select_states.py) - a script that lists all states from the database hbtn_0e_0_usa
 * [1-filter_states.py](1-filter_states.py) -  a script that lists all states with a name starting with N (upper N) from the database hbtn_0e_0_usa
 * [2-my_filter_states.py](2-my_filter_states.py) - a script that takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
-* [3-my_safe_filter_states.py](3-my_safe_filter_states.py) - 
-* [4-cities_by_state.py](4-cities_by_state.py) - 
-* [5-filter_cities.py](5-filter_cities.py) - 
+* [3-my_safe_filter_states.py](3-my_safe_filter_states.py) -  a script that takes in arguments and displays all values in the states table of hbtn_0e_0_usa where name matches the argument. But this time, write one that is safe from MySQL injections!
+* [4-cities_by_state.py](4-cities_by_state.py) - a script that lists all cities from the database hbtn_0e_4_usa
+* [5-filter_cities.py](5-filter_cities.py) - a script that takes in the name of a state as an argument and lists all cities of that state, using the database
 * [model_state.py](model_state.py) - 
 * [7-model_state_fetch_all.py](7-model_state_fetch_all.py) - 
 * [8-model_state_fetch_first.py]() - 
