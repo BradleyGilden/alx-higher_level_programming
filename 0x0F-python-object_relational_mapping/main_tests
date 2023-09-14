@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import sys
+
+
+sys.path.append("/home/nightlock/workspace/Python/alx-higher_level_programming/0x0F-python-object_relational_mapping")
