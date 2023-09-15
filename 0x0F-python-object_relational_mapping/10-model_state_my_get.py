@@ -9,7 +9,6 @@ Date: 14-09-2023
 """
 
 from sys import argv
-from sqlalchemy.exc import NoResultFound
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
@@ -22,9 +21,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    try:
-        state = session.query(State).filter_by(name=argv[4]).one()
+    state = session.query(State).filter_by(name=argv[4]).first()
+    if state:
         print(state.id)
-    except NoResultFound:
+    else:
         print('Not Found')
     session.close()
