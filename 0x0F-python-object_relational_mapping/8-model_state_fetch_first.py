@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
- a script that prints the first State object from the database hbtn_0e_6_usa
+a script that prints the first State object from the database hbtn_0e_6_usa
 Author: Bradley Dillion Gilden
 Date: 14-09-2023
 """
@@ -20,5 +20,8 @@ if __name__ == "__main__":
     session = Session()
 
     state = session.query(State).order_by(State.id).first()
-    print("{}: {}".format(state.id, state.name))
+    if state is None:
+        print('Nothing')
+    else:
+        print("{}: {}".format(state.id, state.name))
     session.close()
