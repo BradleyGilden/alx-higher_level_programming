@@ -1,9 +1,9 @@
 -- Create states table in hbtn_0e_0_usa with some data
 DROP TABLE IF EXISTS cities;
 DROP TABLE IF EXISTS states;
-DROP DATABASE IF EXISTS hbtn_0e_0_usa;
-CREATE DATABASE IF NOT EXISTS hbtn_0e_0_usa;
-USE hbtn_0e_0_usa;
+DROP DATABASE IF EXISTS hbtn_0e_6_usa;
+CREATE DATABASE IF NOT EXISTS hbtn_0e_6_usa;
+USE hbtn_0e_6_usa;
 CREATE TABLE IF NOT EXISTS states ( 
     id INT NOT NULL AUTO_INCREMENT, 
     name VARCHAR(128) NOT NULL,
