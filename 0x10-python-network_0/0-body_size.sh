@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # get content length of get request
-curl -s "$1" | wc -c
+curl -sI "$1" | grep -oP '(?<=Content-Length:\s)\d'
