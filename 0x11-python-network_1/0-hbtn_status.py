@@ -14,4 +14,4 @@ if __name__ == '__main__':
     with urllib.request.urlopen(url) as response:
         result = response.read()
         print("Body response:", f"type: {type(result)}", f"content: {result}",
-              f"utf8 content: {result.decode('UTF-8')}", sep='\n')
+              f"utf8 content: {result.decode('utf-8')}", sep='\n')
