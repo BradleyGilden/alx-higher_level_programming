@@ -8,10 +8,11 @@ You must use requests
 Author: Bradley Dillion Gilden
 Date: 29-09-2023
 """
-import requests
 import sys
+import requests
 
 
 if __name__ == '__main__':
-    response = requests.get(sys.argv[1])
+    url = sys.argv[1]
+    response = requests.get(url)
     print(response.headers['X-Request-Id'])
