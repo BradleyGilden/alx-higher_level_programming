@@ -25,6 +25,9 @@ if __name__ == '__main__':
     response = requests.get(
         f'https://api.github.com/repos/{owner}/{repo}/commits', headers=headers
         )
-    for user in response.json():
-        user_name = user.get('commit').get('author').get('name')
-        print(f"{user.get('sha')}: {user_name}")
+    try:
+        for user in response.json():
+            user_name = user.get('commit').get('author').get('name')
+            print(f"{user.get('sha')}: {user_name}")
+    except Exception:
+        pass
