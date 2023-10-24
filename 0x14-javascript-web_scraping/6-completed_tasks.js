@@ -36,6 +36,11 @@ request(url, (error, response, body) => {
         results[task.userId] += 1;
       }
     }
+    for (const key in results) {
+      if (results[key] === 0) {
+        delete results[key];
+      }
+    }
     console.log(results);
   }
 });
