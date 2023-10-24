@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
 /**
- * a script that display the status code of a GET request.
- *    The first argument is the URL to request (GET)
- *    The status code must be printed like this: code: <status code>
- *    You must use the module request
+ * a script that computes the number of tasks completed by user id.
+ *    + The first argument is the API URL:
+ *      https://jsonplaceholder.typicode.com/todos
+ *    + Only print users with completed task
  *
  * Author: Bradley Dillion Gilden
  * Date: 24-10-2023
@@ -36,6 +36,8 @@ request(url, (error, response, body) => {
         results[task.userId] += 1;
       }
     }
+
+    // delete keys with no complete tasks
     for (const key in results) {
       if (results[key] === 0) {
         delete results[key];
