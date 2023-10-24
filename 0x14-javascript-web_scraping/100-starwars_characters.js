@@ -6,7 +6,7 @@
  * Date: 24-10-2023
  */
 
-request = require('request');
+const request = require('request');
 
 const url = `https://swapi-api.alx-tools.com/api/films/${process.argv[2]}`;
 
