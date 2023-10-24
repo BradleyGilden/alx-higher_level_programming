@@ -15,3 +15,5 @@ I will be using the Node.js request module (`npm install request`).<br> *WARNING
 * [4-starwars_count.js](4-starwars_count.js) - a script that prints the number of movies where the character “Wedge Antilles” is present.
 * [5-request_store.js](5-request_store.js) - a script that gets the contents of a webpage and stores it in a file.
 * [6-completed_tasks.js](6-completed_tasks.js) - a script that computes the number of tasks completed by user id.
+* [100-starwars_characters.js](100-starwars_characters.js) - prints characters in a specified movie in no specific order
+* [101-starwars_characters.js](101-starwars_characters.js) - prints characters in a specified movie in the order they are listed
