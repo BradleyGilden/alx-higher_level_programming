@@ -1,10 +1,4 @@
-$.ajax({
-  url: 'https://swapi-api.hbtn.io/api/films/?format=json',
-  method: 'GET',
-  dataType: 'json',
-  success: (filmData) => {
-    for (let entry of filmData.results) {
-      $('UL#list_movies').append(`<li>${entry.title}</li>`);
-    }
-  }
+$.get('https://swapi-api.hbtn.io/api/films/?format=json', (data)=>{
+  $('UL#list_movies')
+  .append(...data.results.map(movie => `<li>${movie.title}</li>`));
 });
