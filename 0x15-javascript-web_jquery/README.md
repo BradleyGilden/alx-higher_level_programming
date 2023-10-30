@@ -26,3 +26,5 @@ $(element).hide().show().css({height: 25})
 
 * Image slider plugins
 * Form enchancement plugins.. etc
+
+## Directory Files
