@@ -4,6 +4,6 @@ $.ajax({
   dataType: 'json', // Expected data type
   success: (data) => {
     // This function is executed if the request is successful
-    $('DIV#character').text(data.name)
+    $('DIV#character').text(data.name);
   }
 });
